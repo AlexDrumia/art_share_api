@@ -41,6 +41,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
   gem 'annotate'
+  gem 'activerecord-reset-pk-sequence'
 end
 
 group :development do
