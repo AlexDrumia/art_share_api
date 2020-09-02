@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_01_145627) do
+ActiveRecord::Schema.define(version: 2020_09_02_151420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "artwork_shares", id: false, force: :cascade do |t|
+  create_table "artwork_shares", force: :cascade do |t|
     t.bigint "artwork_id", null: false
     t.bigint "viewer_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["artwork_id"], name: "index_artwork_shares_on_artwork_id"
     t.index ["viewer_id"], name: "index_artwork_shares_on_viewer_id"
   end
