@@ -1,4 +1,18 @@
 class CommentsController < ApplicationController
+  def index
+    if params[:user_id].present?
+      user = User.find(params[:user_id])
+      user_comments = user.comments
+
+      render json: user_comments
+    else
+      artwork = Artwork.find(params[:artwork_id])
+      artwork_comments = artwork.comments
+
+      render json: artwork_comments
+    end
+  end
+
   def create
     comment = Comment.new(comment_params)
 
