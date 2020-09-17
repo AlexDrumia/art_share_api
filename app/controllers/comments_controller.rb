@@ -3,12 +3,10 @@ class CommentsController < ApplicationController
     if params[:user_id].present?
       user = User.find(params[:user_id])
       user_comments = user.comments
-
       render json: user_comments
     else
       artwork = Artwork.find(params[:artwork_id])
       artwork_comments = artwork.comments
-
       render json: artwork_comments
     end
   end
@@ -26,8 +24,13 @@ class CommentsController < ApplicationController
   def destroy
     comment = Comment.find(params[:id])
     comment.destroy
-
     render json: comment
+  end
+
+
+  def likes
+    user = User.find(params[:user_id])
+    render json: user.liked_comments
   end
 
   private

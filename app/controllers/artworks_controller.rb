@@ -39,6 +39,12 @@ class ArtworksController < ApplicationController
     render json: artwork
   end
 
+  def likes
+    user = User.find(params[:user_id])
+
+    render json: user.liked_artworks
+  end
+
   private
 
   def artwork_params
