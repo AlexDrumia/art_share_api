@@ -33,6 +33,11 @@ class CommentsController < ApplicationController
     render json: user.liked_comments
   end
 
+  def likers
+    comment = Comment.find(params[:id])
+    render json: comment.likers
+  end
+  
   private
 
   def comment_params

@@ -17,7 +17,10 @@ Rails.application.routes.draw do
     resources :comments, only: :index
   end
   
+  resources :comments, only: [:create, :destroy] do
+    get 'likers', on: :member
+  end
+  
   resources :artwork_shares, only: [:create, :destroy]  
-  resources :comments, only: [:create, :destroy]
   resources :likes, only: [:create]
 end
