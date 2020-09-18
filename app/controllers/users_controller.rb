@@ -13,7 +13,6 @@ class UsersController < ApplicationController
 
   def show
     user = User.find(params[:id])
-    
     render json: user
   end
 
@@ -40,9 +39,7 @@ class UsersController < ApplicationController
   def destroy
     user = User.find(params[:id])
     user.destroy
-
     render json: user
-    # redirect_to users_path
   end
 
   private

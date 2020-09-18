@@ -2,13 +2,11 @@ class ArtworksController < ApplicationController
   def index
     user = User.find(params[:user_id])
     user_artworks = user.artworks + user.shared_artworks
-
     render json: user_artworks
   end
 
   def show
     artwork = Artwork.find(params[:id])
-    
     render json: artwork
   end
 
@@ -35,16 +33,19 @@ class ArtworksController < ApplicationController
   def destroy
     artwork = Artwork.find(params[:id])
     artwork.destroy
-
     render json: artwork
   end
 
   def likes
     user = User.find(params[:user_id])
-
     render json: user.liked_artworks
   end
 
+  def likers
+    artwork = Artwork.find(params[:id])
+    render json: artwork.likers
+  end
+  
   private
 
   def artwork_params
