@@ -14,8 +14,14 @@ Rails.application.routes.draw do
 
     resources :comments, only: :index
   end
+
+  resources :artwork_shares, only: [:create, :destroy] do
+    member do
+      post :favorite
+      post :unfavorite 
+    end
+  end
   
   resources :comments, only: [:create, :destroy]
-  resources :artwork_shares, only: [:create, :destroy]  
   resources :likes, only: [:create]
 end
