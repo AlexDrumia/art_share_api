@@ -45,7 +45,21 @@ class ArtworksController < ApplicationController
     artwork = Artwork.find(params[:id])
     render json: artwork.likers
   end
-  
+
+  def favorite
+    artwork = Artwork.find_by!(id: params[:id], artist_id: params[:user_id])
+    artwork.favorite = true
+    artwork.save
+    render json: artwork
+  end
+
+  def unfavorite
+    artwork = Artwork.find_by!(id: params[:id], artist_id: params[:user_id])
+    artwork.favorite = false
+    artwork.save
+    render json: artwork
+  end
+
   private
 
   def artwork_params
