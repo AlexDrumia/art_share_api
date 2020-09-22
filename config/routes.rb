@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :artworks, only: [:show, :create, :update, :destroy] do
     member do
+      post :like
+      post :unlike
       post :favorite
       post :unfavorite 
     end
@@ -15,13 +17,17 @@ Rails.application.routes.draw do
     resources :comments, only: :index
   end
 
+  resources :comments, only: [:create, :destroy] do
+    member do
+      post :like
+      post :unlike
+    end
+  end
+  
   resources :artwork_shares, only: [:create, :destroy] do
     member do
       post :favorite
       post :unfavorite 
     end
   end
-  
-  resources :comments, only: [:create, :destroy]
-  resources :likes, only: [:create]
 end
