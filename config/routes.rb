@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :create, :update, :destroy] do
     resources :artworks, only: :index
     resources :comments, only: :index
+    resources :collections, only: :index
   end
 
   resources :artworks, only: [:show, :create, :update, :destroy] do
@@ -28,6 +29,13 @@ Rails.application.routes.draw do
     member do
       post :favorite
       post :unfavorite 
+    end
+  end
+
+  resources :collections, only: [:show, :create, :destroy] do
+    resources :artworks, only: :index do
+      post :add, to: 'collections#add_artwork', as: 'add'
+      delete :remove, to: 'collections#remove_artwork', as: 'remove'
     end
   end
 end
