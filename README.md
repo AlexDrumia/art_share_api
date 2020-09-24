@@ -1,13 +1,19 @@
 # Art Share API
 
 The goal is to build an application to store, share, and comment on artwork, as well as search for users.
-Each user has a set of artworks that they own/control. These artworks can also be shared with other users. An artwork that has been shared with one or more other users will be visible to those users, but the artwork still 'belongs to' the original user.
+As extra added functionality, it is possible to like artworks and comments, favorite/unfavorite artworks, as well as add/remove artworks to/from artwork collections.
 
-# Ruby version
+# Application environment
 
-ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux]
-
-Rails 5.2.4.3
+Rails version             5.2.4.3
+Ruby version              2.5.1-p57 (x86_64-linux)
+RubyGems version          2.7.6
+Rack version              2.2.3
+JavaScript Runtime        Node.js (V8)
+Middleware                Rack::Sendfile, ActionDispatch::Static, ActionDispatch::Executor, ActiveSupport::Cache::Strategy::LocalCache::Middleware, Rack::Runtime, Rack::MethodOverride, ActionDispatch::RequestId, ActionDispatch::RemoteIp, Sprockets::Rails::QuietAssets, Rails::Rack::Logger, ActionDispatch::ShowExceptions, WebConsole::Middleware, ActionDispatch::DebugExceptions, ActionDispatch::Reloader, ActionDispatch::Callbacks, ActiveRecord::Migration::CheckPending, ActionDispatch::Cookies, ActionDispatch::Session::CookieStore, ActionDispatch::Flash, ActionDispatch::ContentSecurityPolicy::Middleware, Rack::Head, Rack::ConditionalGet, Rack::ETag, Rack::TempfileReaper
+Environment               development
+Database adapter          postgresql
+Database schema version   20200923123747
 
 # Database initialization
 
